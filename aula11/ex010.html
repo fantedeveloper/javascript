@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        #msg {
+            background-color: blueviolet;
+            width: 400px;
+            height: 200px;
+            border-radius: 10px;
+            margin-top: 30px;
+            padding-top: 20px;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    <label for="txtvel">Velocidade: </label><input type="number" name="txtvel" id="txtvel">
+    <input type="button" value="Verificar" onclick="clicar()">
+    <div id="msg"></div>
+    <script>
+        function clicar() {
+            var vel = document.getElementById('txtvel')
+            var msg = document.getElementById('msg')
+            msg.innerHTML = `<p>Sua velocidade e de <strong>${vel.value}km/h.</strong>.</p>`
+            msg.innerHTML += `<p>Diriga sempre com cinto de seguranca.</p>`
+            if (Number(vel.value)>60) {
+                msg.innerHTML += `<p>Voce esta acima da velocidade permitida, sera <strong>MULTADO</strong>.</p>`
+            }
+        }
+    </script>
+</body>
+</html>

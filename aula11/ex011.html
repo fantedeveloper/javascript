@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+    <style>
+        #resp {
+            background-color: brown;
+            color: white;
+            width: 300px;
+            height: 300px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Qual a sua nacionalidade?</h1>
+    <label for="txtpais">Pais: </label><input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Verificar" onclick="clicar()">
+    <div id="resp"></div>
+
+    <script>
+        function clicar() {
+            var pais = document.getElementById('txtpais')
+            var nac = document.getElementById('resp')
+            if (pais.value!='Brasil') {
+                nac.innerHTML = `Voce nasceu no ${pais.value}, portanto e Estrangeiro.`
+            } else {
+                nac.innerHTML = `Voce nasceu no ${pais.value}, portanto e Brasileiro.`
+            }
+
+        }
+    </script>
+</body>
+</html>
