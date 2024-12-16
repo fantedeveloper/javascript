@@ -2,6 +2,7 @@ let pai = document.getElementById('pai')
 let lista = []
 let tab = document.getElementById('seltab')
 let num = document.getElementById('txtnum')
+let res = document.getElementById('res')
 
 function adicionar(n) {
     if (lista.indexOf(n) >=0) {
@@ -12,6 +13,8 @@ function adicionar(n) {
         item.text = `Elemento ${n} adicionado.`
         tab.appendChild(item)
         num.value = ''
+        num.focus()
+        res.innerHTML = ''
     }
 }
 
@@ -27,28 +30,23 @@ function verificar() {
 
 function finalizar() {
     if (lista.length != 0) {
+        let total = lista.length
         lista.sort(function(a,b){return a-b})
-        let tamanho = Number(lista.length)-1
-        let p1 = document.createElement('p')
-        let p2 = document.createElement('p')
-        let p3 = document.createElement('p')
-        let p4 = document.createElement('p')
-        let p5 = document.createElement('p')
+        let soma = 0
+        let media = 0
 
-        for (let i=0;i<lista.length;i++) {
-            let soma = 0
+        res.innerHTML = ''
+
+        for (let i=0;i<total;i++) {
             soma += lista[i]
         }
-
-        p1.textContent = `Total de ${lista.length} elementos`
-        pai.appendChild(p1)
-        p2.textContent = `O maior valor e o ${lista[lista.length-1]}`
-        pai.appendChild(p2)
-        p3.textContent = `O menor valor e o ${lista[0]}`
-        pai.appendChild(p3)
-        p4.textContent = `A soma dos valores e igual a ${soma}`
-        pai.appendChild(p4)
+        media = soma / total
         
+        res.innerHTML += `<p>Total de ${total} elementos.</p>`
+        res.innerHTML += `<p>O maior valor e ${lista[total-1]}.</p>`
+        res.innerHTML += `<p>O menor valor e ${lista[0]}.</p>`
+        res.innerHTML += `<p>A soma dos valores e ${soma}.</p>`
+        res.innerHTML += `<p>A media dos valores e ${media.toFixed(2)}.</p>`
 
     } else {
         alert('Adicione numeros a lista antes de finalizar.')
