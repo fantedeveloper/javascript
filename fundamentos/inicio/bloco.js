@@ -1,0 +1,5 @@
+// agrupamento de sentencas
+
+{
+    //bloco
+}
