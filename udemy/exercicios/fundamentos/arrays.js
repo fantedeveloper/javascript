@@ -8,3 +8,9 @@ console.log(valores.length)
 
 valores.push({id: 3}, false, null, 'teste')
 console.log(valores)
+
+console.log(valores.pop())
+console.log(valores)
+delete valores[0]
+
+console.log(typeof valores)
