@@ -8,6 +8,6 @@ let opcao = -1
 do {
     opcao = getInteiroAleatorio(1, 10)
     console.log(`Opcao escolhida fio ${opcao}`)
-}  while (opcao != 1)
+} while (opcao != -1)
 
     console.log('Ate a proxima')
